@@ -1,0 +1,134 @@
+# 🛒 Grocery App
+
+A modern Flutter application for browsing grocery products. Built with **Material 3** design, clean architecture, and declarative routing.
+
+## ✨ Features
+
+- **Home Screen** — Welcome landing page with quick navigation to the product catalog
+- **Product List** — Browse a curated catalog of grocery items with organic indicators, categories, and pricing (₱)
+- **Product Detail** — View full product info including description, stock quantity, and organic status
+- **Declarative Routing** — Powered by [go_router](https://pub.dev/packages/go_router) for type-safe, centralized navigation
+
+## 🏗️ Project Structure
+
+```
+lib/
+├── main.dart                              # App entry point & theme configuration
+├── core/
+│   └── router.dart                        # Centralized GoRouter configuration
+├── domain/
+│   └── entities/
+│       └── grocery_product.dart           # GroceryProduct entity (Equatable)
+└── presentation/
+    ├── components/
+    │   └── product_card.dart              # Reusable product card widget
+    └── screens/
+        ├── home/
+        │   └── home_screen.dart           # Landing / welcome screen
+        └── products/
+            ├── products_list_screen.dart   # Scrollable product list
+            └── product_detail_screen.dart  # Single product detail view
+```
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- [Flutter SDK](https://docs.flutter.dev/get-started/install) (Dart SDK ^3.11.0)
+- Android Studio / Xcode (for emulators) or a connected device
+- A code editor (VS Code, Android Studio, etc.)
+
+### Installation
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd groceryapp
+
+# Install dependencies
+flutter pub get
+
+# Run the app
+flutter run
+```
+
+## 📦 Dependencies
+
+| Package | Purpose |
+|---------|---------|
+| [go_router](https://pub.dev/packages/go_router) | Declarative routing |
+| [equatable](https://pub.dev/packages/equatable) | Value equality for entities |
+| [intl](https://pub.dev/packages/intl) | Internationalization & formatting |
+| [cupertino_icons](https://pub.dev/packages/cupertino_icons) | iOS-style icons |
+
+### Dev Dependencies
+
+| Package | Purpose |
+|---------|---------|
+| [flutter_lints](https://pub.dev/packages/flutter_lints) | Recommended lint rules |
+| [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons) | App icon generation |
+
+## 🎨 Design
+
+- **Material 3** with a green seed color scheme
+- Organic products are highlighted with a green eco icon; non-organic products use a shopping basket icon
+- Prices are displayed in **Philippine Peso (₱)**
+
+## 🧪 Running Tests
+
+```bash
+flutter test
+```
+
+## 🙈 .gitignore
+
+The project `.gitignore` excludes the following:
+
+| Category | Ignored |
+|----------|---------|
+| **Miscellaneous** | `*.class`, `*.log`, `*.pyc`, `*.swp`, `.DS_Store`, `.atom/`, `.build/`, `.buildlog/`, `.history`, `.svn/`, `.swiftpm/`, `migrate_working_dir/` |
+| **IntelliJ / IDE** | `*.iml`, `*.ipr`, `*.iws`, `.idea/` |
+| **Flutter / Dart / Pub** | `**/doc/api/`, `**/ios/Flutter/.last_build_id`, `.dart_tool/`, `.flutter-plugins-dependencies`, `.pub-cache/`, `.pub/`, `/build/`, `/coverage/` |
+| **Symbolication** | `app.*.symbols` |
+| **Obfuscation** | `app.*.map.json` |
+| **Android Studio builds** | `/android/app/debug`, `/android/app/profile`, `/android/app/release` |
+
+> **Note:** The `.vscode/` folder is **not** ignored by default (the rule is commented out) so you can version-control VS Code launch configs if desired.
+
+## ⚙️ Environment
+
+| Requirement | Version |
+|-------------|---------|
+| **Dart SDK** | ^3.11.0 |
+| **Flutter SDK** | Latest stable (compatible with Dart ^3.11.0) |
+
+### Supported Platforms
+
+The project includes platform runners for:
+
+- 🤖 **Android** (`android/`)
+- 🍎 **iOS** (`ios/`)
+- 🌐 **Web** (`web/`)
+- 🐧 **Linux** (`linux/`)
+- 🪟 **Windows** (`windows/`)
+- 🍏 **macOS** (`macos/`)
+
+### Quick Setup
+
+```bash
+# Verify your environment
+flutter doctor
+
+# Install dependencies
+flutter pub get
+
+# Generate app icons (optional)
+flutter pub run flutter_launcher_icons
+
+# Run on your target platform
+flutter run
+```
+
+## 📄 License
+
+This project is for educational / personal use.
