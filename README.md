@@ -1,15 +1,15 @@
-# 🛒 Grocery App
+#Grocery App
 
 A modern Flutter application for browsing grocery products. Built with **Material 3** design, clean architecture, and declarative routing.
 
-## ✨ Features
+# Features
 
 - **Home Screen** — Welcome landing page with quick navigation to the product catalog
 - **Product List** — Browse a curated catalog of grocery items with organic indicators, categories, and pricing (₱)
 - **Product Detail** — View full product info including description, stock quantity, and organic status
 - **Declarative Routing** — Powered by [go_router](https://pub.dev/packages/go_router) for type-safe, centralized navigation
 
-## 🏗️ Project Structure
+# Project Structure
 
 ```
 lib/
@@ -38,7 +38,7 @@ lib/
 - Android Studio / Xcode (for emulators) or a connected device
 - A code editor (VS Code, Android Studio, etc.)
 
-### Installation
+# Installation
 
 ```bash
 # Clone the repository
@@ -52,7 +52,7 @@ flutter pub get
 flutter run
 ```
 
-## 📦 Dependencies
+# Dependencies
 
 | Package | Purpose |
 |---------|---------|
@@ -61,39 +61,25 @@ flutter run
 | [intl](https://pub.dev/packages/intl) | Internationalization & formatting |
 | [cupertino_icons](https://pub.dev/packages/cupertino_icons) | iOS-style icons |
 
-### Dev Dependencies
+## Dev Dependencies
 
 | Package | Purpose |
 |---------|---------|
 | [flutter_lints](https://pub.dev/packages/flutter_lints) | Recommended lint rules |
 | [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons) | App icon generation |
 
-## 🎨 Design
+#Design
 
 - **Material 3** with a green seed color scheme
 - Organic products are highlighted with a green eco icon; non-organic products use a shopping basket icon
 - Prices are displayed in **Philippine Peso (₱)**
 
-## 🧪 Running Tests
+# Running Tests
 
 ```bash
 flutter test
 ```
 
-## 🙈 .gitignore
-
-The project `.gitignore` excludes the following:
-
-| Category | Ignored |
-|----------|---------|
-| **Miscellaneous** | `*.class`, `*.log`, `*.pyc`, `*.swp`, `.DS_Store`, `.atom/`, `.build/`, `.buildlog/`, `.history`, `.svn/`, `.swiftpm/`, `migrate_working_dir/` |
-| **IntelliJ / IDE** | `*.iml`, `*.ipr`, `*.iws`, `.idea/` |
-| **Flutter / Dart / Pub** | `**/doc/api/`, `**/ios/Flutter/.last_build_id`, `.dart_tool/`, `.flutter-plugins-dependencies`, `.pub-cache/`, `.pub/`, `/build/`, `/coverage/` |
-| **Symbolication** | `app.*.symbols` |
-| **Obfuscation** | `app.*.map.json` |
-| **Android Studio builds** | `/android/app/debug`, `/android/app/profile`, `/android/app/release` |
-
-> **Note:** The `.vscode/` folder is **not** ignored by default (the rule is commented out) so you can version-control VS Code launch configs if desired.
 
 ### Why are these files excluded?
 
@@ -118,12 +104,12 @@ These files are **auto-generated** and machine-specific — they should never be
 
 The project includes platform runners for:
 
-- 🤖 **Android** (`android/`)
-- 🍎 **iOS** (`ios/`)
-- 🌐 **Web** (`web/`)
-- 🐧 **Linux** (`linux/`)
-- 🪟 **Windows** (`windows/`)
-- 🍏 **macOS** (`macos/`)
+- **Android** (`android/`)
+- **iOS** (`ios/`)
+- **Web** (`web/`)
+- **Linux** (`linux/`)
+- **Windows** (`windows/`)
+- **macOS** (`macos/`)
 
 ### Quick Setup
 
@@ -141,6 +127,6 @@ flutter pub run flutter_launcher_icons
 flutter run
 ```
 
-## 📄 License
+#License
 
 This project is for educational / personal use.
