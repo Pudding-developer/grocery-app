@@ -1,4 +1,4 @@
-#Grocery App
+# Grocery App
 
 A modern Flutter application for browsing grocery products. Built with **Material 3** design, clean architecture, and declarative routing.
 
@@ -30,7 +30,7 @@ lib/
             └── product_detail_screen.dart  # Single product detail view
 ```
 
-## 🚀 Getting Started
+# Getting Started
 
 ### Prerequisites
 
