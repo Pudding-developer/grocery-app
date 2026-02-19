@@ -93,7 +93,7 @@ These files are **auto-generated** and machine-specific — they should never be
 
 > **The app will still work perfectly.** All source code, dependencies, platform configs, and assets are included in the repo. Only temporary build output is excluded.
 
-## ⚙️ Environment
+# Environment
 
 | Requirement | Version |
 |-------------|---------|
