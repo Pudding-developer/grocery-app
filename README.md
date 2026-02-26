@@ -7,6 +7,9 @@ A Flutter application for managing grocery products. Built with clean architectu
 - Browse a catalog of grocery products
 - Add, edit, and delete products
 - View full product details (price, stock, category, organic status)
+- Category-specific icons throughout the app (product list and detail screen)
+- Auto-scroll to the latest added product for quick access
+- Products sorted chronologically — seeded items first, newly added items at the bottom
 - Data persists locally via Hive
 
 ## Architecture
@@ -75,7 +78,7 @@ Uses `flutter_bloc` with four states:
 ### Installation
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Pudding-developer/grocery-app.git
 cd groceryapp
 
 flutter pub get
