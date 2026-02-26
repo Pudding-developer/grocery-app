@@ -1,132 +1,111 @@
 # Grocery App
 
-A modern Flutter application for browsing grocery products. Built with **Material 3** design, clean architecture, and declarative routing.
+A Flutter application for managing grocery products. Built with clean architecture, BLoC state management, and Hive local storage.
 
-# Features
+## Features
 
-- **Home Screen** — Welcome landing page with quick navigation to the product catalog
-- **Product List** — Browse a curated catalog of grocery items with organic indicators, categories, and pricing (₱)
-- **Product Detail** — View full product info including description, stock quantity, and organic status
-- **Declarative Routing** — Powered by [go_router](https://pub.dev/packages/go_router) for type-safe, centralized navigation
+- Browse a catalog of grocery products
+- Add, edit, and delete products
+- View full product details (price, stock, category, organic status)
+- Data persists locally via Hive
 
-# Project Structure
+## Architecture
+
+Follows **Clean Architecture** with three layers:
 
 ```
 lib/
-├── main.dart                              # App entry point & theme configuration
+├── main.dart
 ├── core/
-│   └── router.dart                        # Centralized GoRouter configuration
+│   ├── service/
+│   │   └── service_locator.dart       # get_it dependency injection
+│   └── router.dart                    # GoRouter configuration
 ├── domain/
-│   └── entities/
-│       └── grocery_product.dart           # GroceryProduct entity (Equatable)
+│   ├── entities/
+│   │   └── grocery_product.dart       # Core entity
+│   ├── repositories/
+│   │   └── grocery_repository.dart    # Abstract repository
+│   └── usecases/
+│       ├── get_all_products.dart
+│       ├── add_product.dart
+│       ├── update_product.dart
+│       └── delete_product.dart
+├── data/
+│   ├── models/
+│   │   ├── grocery_product_model.dart # Hive model (@HiveType)
+│   │   └── grocery_product_model.g.dart
+│   ├── datasources/
+│   │   └── grocery_local_datasource.dart
+│   └── repositories/
+│       └── grocery_repository_impl.dart
 └── presentation/
+    ├── bloc/
+    │   ├── grocery_bloc.dart
+    │   ├── grocery_event.dart
+    │   └── grocery_state.dart
     ├── components/
-    │   └── product_card.dart              # Reusable product card widget
+    │   └── product_card.dart
     └── screens/
         ├── home/
-        │   └── home_screen.dart           # Landing / welcome screen
+        │   └── home_screen.dart
         └── products/
-            ├── products_list_screen.dart   # Scrollable product list
-            └── product_detail_screen.dart  # Single product detail view
+            ├── products_list_screen.dart
+            ├── product_detail_screen.dart
+            └── add_edit_product_screen.dart
 ```
 
-# Getting Started
+## State Management
+
+Uses `flutter_bloc` with four states:
+
+| State | Description |
+|-------|-------------|
+| `GroceryInitial` | App just started |
+| `GroceryLoading` | Async operation in progress |
+| `GroceryLoaded` | Products loaded successfully |
+| `GroceryError` | Operation failed |
+
+## Getting Started
 
 ### Prerequisites
 
-- [Flutter SDK](https://docs.flutter.dev/get-started/install) (Dart SDK ^3.11.0)
-- Android Studio / Xcode (for emulators) or a connected device
-- A code editor (VS Code, Android Studio, etc.)
+- Flutter SDK (Dart ^3.11.0)
+- Android Studio / Xcode or a connected device
 
-# Installation
+### Installation
 
 ```bash
-# Clone the repository
 git clone <repository-url>
 cd groceryapp
 
-# Install dependencies
 flutter pub get
 
-# Run the app
+# Generate Hive adapters
+dart run build_runner build
+
 flutter run
 ```
 
-# Dependencies
+## Dependencies
 
 | Package | Purpose |
 |---------|---------|
-| [go_router](https://pub.dev/packages/go_router) | Declarative routing |
-| [equatable](https://pub.dev/packages/equatable) | Value equality for entities |
-| [intl](https://pub.dev/packages/intl) | Internationalization & formatting |
-| [cupertino_icons](https://pub.dev/packages/cupertino_icons) | iOS-style icons |
+| `flutter_bloc` | BLoC state management |
+| `hive_flutter` | Local data persistence |
+| `get_it` | Dependency injection |
+| `go_router` | Declarative routing |
+| `equatable` | Value equality |
+| `intl` | Number/date formatting |
 
-## Dev Dependencies
+### Dev Dependencies
 
 | Package | Purpose |
 |---------|---------|
-| [flutter_lints](https://pub.dev/packages/flutter_lints) | Recommended lint rules |
-| [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons) | App icon generation |
+| `hive_generator` | Generates Hive type adapters |
+| `build_runner` | Code generation runner |
+| `flutter_lints` | Lint rules |
+| `flutter_launcher_icons` | App icon generation |
 
-#Design
+## License
 
-- **Material 3** with a green seed color scheme
-- Organic products are highlighted with a green eco icon; non-organic products use a shopping basket icon
-- Prices are displayed in **Philippine Peso (₱)**
-
-# Running Tests
-
-```bash
-flutter test
-```
-
-
-### Why are these files excluded?
-
-These files are **auto-generated** and machine-specific — they should never be committed to version control. When someone clones this repo, they are regenerated automatically:
-
-| Excluded | Regenerated by |
-|----------|----------------|
-| `build/` | `flutter run` or `flutter build` |
-| `.dart_tool/` | `flutter pub get` |
-| `.idea/` / `*.iml` | Opening the project in Android Studio or IntelliJ |
-
-> **The app will still work perfectly.** All source code, dependencies, platform configs, and assets are included in the repo. Only temporary build output is excluded.
-
-# Environment
-
-| Requirement | Version |
-|-------------|---------|
-| **Dart SDK** | ^3.11.0 |
-| **Flutter SDK** | Latest stable (compatible with Dart ^3.11.0) |
-
-### Supported Platforms
-
-The project includes platform runners for:
-
-- **Android** (`android/`)
-- **iOS** (`ios/`)
-- **Web** (`web/`)
-- **Linux** (`linux/`)
-- **Windows** (`windows/`)
-- **macOS** (`macos/`)
-
-### Quick Setup
-
-```bash
-# Verify your environment
-flutter doctor
-
-# Install dependencies
-flutter pub get
-
-# Generate app icons (optional)
-flutter pub run flutter_launcher_icons
-
-# Run on your target platform
-flutter run
-```
-
-#License
-
-This project is for educational / personal use.
+This project is for educational use.

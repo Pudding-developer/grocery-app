@@ -16,6 +16,27 @@ class ProductCard extends StatelessWidget {
     required this.onTap,
   });
 
+  static IconData _iconForCategory(String category) {
+    switch (category) {
+      case 'Fruits':
+        return Icons.apple;
+      case 'Vegetables':
+        return Icons.grass;
+      case 'Dairy':
+        return Icons.egg;
+      case 'Bakery':
+        return Icons.breakfast_dining;
+      case 'Meat':
+        return Icons.set_meal;
+      case 'Beverages':
+        return Icons.local_drink;
+      case 'Snacks':
+        return Icons.cookie;
+      default:
+        return Icons.shopping_basket;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -35,7 +56,7 @@ class ProductCard extends StatelessWidget {
                     ? Colors.green.shade100
                     : theme.colorScheme.primaryContainer,
                 child: Icon(
-                  product.isOrganic ? Icons.eco : Icons.shopping_basket,
+                  _iconForCategory(product.category),
                   color: product.isOrganic
                       ? Colors.green.shade700
                       : theme.colorScheme.onPrimaryContainer,

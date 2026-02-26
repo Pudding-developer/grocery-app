@@ -4,6 +4,7 @@ import 'package:groceryapp/domain/entities/grocery_product.dart';
 import 'package:groceryapp/presentation/screens/home/home_screen.dart';
 import 'package:groceryapp/presentation/screens/products/products_list_screen.dart';
 import 'package:groceryapp/presentation/screens/products/product_detail_screen.dart';
+import 'package:groceryapp/presentation/screens/products/add_edit_product_screen.dart';
 
 /// Centralised GoRouter configuration for the app.
 class AppRouter {
@@ -23,6 +24,17 @@ class AppRouter {
         builder: (context, state) {
           final product = state.extra! as GroceryProduct;
           return ProductDetailScreen(product: product);
+        },
+      ),
+      GoRoute(
+        path: '/add-product',
+        builder: (context, state) => const AddEditProductScreen(),
+      ),
+      GoRoute(
+        path: '/edit-product',
+        builder: (context, state) {
+          final product = state.extra! as GroceryProduct;
+          return AddEditProductScreen(product: product);
         },
       ),
     ],
